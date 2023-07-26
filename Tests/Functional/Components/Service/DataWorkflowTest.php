@@ -172,7 +172,6 @@ class DataWorkflowTest extends TestCase
         $fileIOProvider->method('getFileWriter')->willReturn($fileReader);
         $fileIOProvider->method('getFileReader')->willReturn($fileReader);
         $sessionService = $this->getMockBuilder(SessionService::class)->disableOriginalConstructor()->getMock();
-        $logger = $logMock;
         $profileFactory = $this->getMockBuilder(ProfileFactory::class)->disableOriginalConstructor()->getMock();
         $profileFactory->method('loadHiddenProfile')->willReturn(new Profile(new ProfileModel()));
 
@@ -181,7 +180,7 @@ class DataWorkflowTest extends TestCase
             $dataTransformationFactory,
             $fileIOProvider,
             $sessionService,
-            $logger,
+            $logMock,
             $profileFactory
         );
     }
